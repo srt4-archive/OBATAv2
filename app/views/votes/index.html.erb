@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>User</th>
-    <th>Post</th>
+    <th>Report</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @votes.each do |vote| %>
   <tr>
     <td><%= vote.user %></td>
-    <td><%= vote.post %></td>
+    <td><%= vote.report %></td>
     <td><%= link_to 'Show', vote %></td>
     <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
     <td><%= link_to 'Destroy', vote, confirm: 'Are you sure?', method: :delete %></td>

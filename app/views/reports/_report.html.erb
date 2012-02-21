@@ -1,0 +1,25 @@
+<% div_for report do %>  
+	<div class="left">
+		<div class="approve">
+			<% if user_signed_in? || true %>
+
+			<% end %>			
+			<%= report.votes.count %>
+		</div>
+		
+		<div class="arrow-down"></div>
+	</div>
+	<div class="right">
+		<div class="report-date"><b>reported <%= time_ago_in_words(report.created_at) %> ago</b></div>  
+		<div class="route"><%= report.route %></div> 
+		<div class="issue"><%= report.message %></div>  
+		<div class="username">by: <%= report.user.username %></div>
+		<div>
+	 	<% if user_signed_in? || true %>		
+
+		<% end %>
+		<%= report.num_comments %>
+		</div>
+	</div>
+	<div style="clear:both"></div>
+<% end %>  

@@ -1,7 +1,7 @@
 Obata::Application.routes.draw do
-  resources :votes
-
   resources :comments
+
+  resources :votes
 
   resources :reports
 
