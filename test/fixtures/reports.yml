@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  route: MyString
+  stop: 1
+  body: MyText
+  user: 
+
+two:
+  title: MyString
+  route: MyString
+  stop: 1
+  body: MyText
+  user: 
