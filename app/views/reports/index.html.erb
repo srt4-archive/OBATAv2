@@ -1,4 +1,16 @@
+<span>
+  <%- if user_signed_in? %>
+    <%= "Signed in as #{current_user.email}. Not you?" %>
+    <%= link_to 'Sign out', destroy_user_session_path %>
+  <%- else %>
+    <%= link_to 'Sign in', new_user_session_path %>
+  <%- end %>
+</span>
+
+
 <h1>Listing reports</h1>
+
+
 
 <table>
   <tr>
