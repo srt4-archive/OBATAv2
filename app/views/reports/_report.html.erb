@@ -1,10 +1,12 @@
-<% div_for report do %>  
+<div id="posts">
+<% @reports.each do |report| %>
+<div class="post" id="r<%= report.id %>">
 	<div class="left">
 		<div class="approve">
 			<% if user_signed_in? || true %>
 
 			<% end %>			
-			<%= report.votes.count %>
+			<span class="count"><%= report.votes.count %></span>
 		</div>
 		
 		<div class="arrow-down"></div>
@@ -12,14 +14,28 @@
 	<div class="right">
 		<div class="report-date"><b>reported <%= time_ago_in_words(report.created_at) %> ago</b></div>  
 		<div class="route"><%= report.route %></div> 
-		<div class="issue"><%= report.message %></div>  
-		<div class="username">by: <%= report.user.username %></div>
+		<div class="issue"><%= report.body %></div>  
+		<div class="username">by: <%= report.user.email %></div>
 		<div>
 	 	<% if user_signed_in? || true %>		
 
 		<% end %>
-		<%= report.num_comments %>
+		<%= report.comments.count %>
 		</div>
 	</div>
 	<div style="clear:both"></div>
+
+	<%= form_for(@vote, :remote => true) do |f| %>
+		<%= f.hidden_field "report_id", :value => report.id %>
+		<%= f.hidden_field "user_id", :value => current_user.id %>
+		<%= f.submit "Vote" %>
+	<% end %>
+
+	<div class="actions">
+	<%= link_to 'Show', report %>
+    <%= link_to 'Edit', edit_report_path(report) %>
+    <%= link_to 'Destroy', report, confirm: 'Are you sure?', method: :delete %>
+    </div>
+</div>
 <% end %>  
+</div>

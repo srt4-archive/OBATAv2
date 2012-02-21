@@ -3,7 +3,8 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @reports = Report.all
-
+	@vote = Vote.new(params[:vote])
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reports }
@@ -14,7 +15,8 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     @report = Report.find(params[:id])
-
+    @vote = Vote.new(params[:vote])
+    	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @report }

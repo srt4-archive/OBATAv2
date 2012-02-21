@@ -1,29 +1,115 @@
 <p id="notice"><%= notice %></p>
+<style>
+@font-face {
+	font-family: "Segoe UI";
+	src: url('http://obata.spencerrthomas.com/segoui.ttf');
+}
 
-<p>
-  <b>Title:</b>
-  <%= @report.title %>
-</p>
+#route, msg, h3, #comments {
+	font-family: "Segoe UI", Arial;
+}
 
-<p>
-  <b>Route:</b>
-  <%= @report.route %>
-</p>
+#issue-description {
+	background: white;
+	border: solid thin gray;
+	width: 400px;
+	padding: 10px;
+	padding-top: 0px;
+}
 
-<p>
-  <b>Stop:</b>
-  <%= @report.stop %>
-</p>
+.issue-left {
+	float: left;
+	width: 103px;
+}
 
-<p>
-  <b>Body:</b>
-  <%= @report.body %>
-</p>
+.issue-right {
+	float: left;
+	margin-left: 40px;
+	width: 237px;
+}
 
-<p>
-  <b>User:</b>
-  <%= @report.user %>
-</p>
+.issue-approve {
+	text-align: center;
+	font-family: 'Segoe UI';
+	color: white;
+	font-size: 18px;
+	background: rgb(247,132,0);
+}
+
+.issue-approval-count {
+	text-align: center;
+	font-size: 36px;
+	margin-left: 4px;
+}
+
+.issue-title {
+	color: rgb(0, 147, 68);
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.issue-desc {
+	margin-top: 10px;
+}
+
+.down-arrow {
+	background: url('http://obata.spencerrthomas.com/down_arrow.png');
+	height: 32px;
+}
+
+#comments {
+	width: 400px;
+}
+
+#comments div.comment {
+	background: rgb(226,226,226);
+	margin-bottom: 10px;
+	padding: 10px;
+}
+</style>
+
+<div id="issue-description">
+	<div class="issue-left">
+		<div class="issue-approve">
+			approve
+		</div>
+		<div class="down-arrow">
+			
+		</div>
+		<div class="issue-approval-count">
+			<%= @report.votes.count %>
+			<br />
+			<span style="color:gray; font-size:11px">approvals</span>
+		</div>
+	</div>
+	
+	<div class="issue-right">
+		<div class="issue-title">
+			<%= @report.route %> - <%= @report.body %>
+		</div>
+		
+		<div class="issue-desc">
+			Submitted <%= time_ago_in_words(@report.created_at) %> ago by <%= @report.user.email %>
+		</div>
+	</div>
+	
+	<div style="clear:both"></div>
+</div>
+ 
+<div style="clear:both"></div>
+
+<div id="comments">
+	<% @report.comments.each do |c| %>
+		<div class="comment">
+			<span style="font-size: 16px">"<i><%= c.body %></i>"</span>
+			<br /><%= time_ago_in_words(c.created_at) %> ago by 
+			<%= c.user.username %>
+			<br /> 
+			<br />
+		</div>
+		<div style="clear:both"></div>
+	<% end %>
+</div>
 
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

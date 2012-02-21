@@ -1,0 +1,10 @@
+var id = "r" + <%= @vote.report.id %>;
+
+var count = <%= @vote.report.votes.count %>;
+
+var $elem = $("#" + id + " .count");
+
+$elem.fadeOut(100, function() {
+	$(this).text(count);
+	$(this).fadeIn(100);
+});
