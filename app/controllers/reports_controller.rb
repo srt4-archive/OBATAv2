@@ -40,7 +40,13 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(params[:report])
+    @report = Report.new(
+    	:route => params[:report][:route],
+    	:stop => params[:report][:stop],
+    	:body => params[:report][:body],
+    	:title => params[:report][:title],
+    	:user => current_user
+    )
 
     respond_to do |format|
       if @report.save
