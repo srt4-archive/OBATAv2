@@ -81,8 +81,9 @@ body {
 
 
 
-.approve input {
+.vote input {
 	border: none;
 	background: rgb(247,147,29);
 	color: white;
+	font-size: 16px;
 }

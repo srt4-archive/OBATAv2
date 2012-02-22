@@ -3,9 +3,15 @@
 <div class="post" id="r<%= report.id %>">
 	<div class="left">
 		<div class="approve">
-			<% if user_signed_in? || true %>
-
-			<% end %>			
+			<% if user_signed_in? %>
+				<div class="vote">
+					<%= form_for(@vote, :remote => true) do |f| %>
+						<%= f.hidden_field "report_id", :value => report.id %>
+						<%= f.hidden_field "user_id", :value => current_user.id %>
+						<%= f.submit "Vote" %>
+					<% end %>
+				</div>
+			<% end %>		
 			<span class="count"><%= report.votes.count %></span>
 		</div>
 		
@@ -20,17 +26,12 @@
 	 	<% if user_signed_in? || true %>		
 
 		<% end %>
-		<%= report.comments.count %>
+		<%= pluralize(report.comments.count, 'comment') %>
 		</div>
 	</div>
+	
 	<div style="clear:both"></div>
-
-	<%= form_for(@vote, :remote => true) do |f| %>
-		<%= f.hidden_field "report_id", :value => report.id %>
-		<%= f.hidden_field "user_id", :value => current_user.id %>
-		<%= f.submit "Vote" %>
-	<% end %>
-
+	
 	<div class="actions">
 	<%= link_to 'Show', report %>
     <%= link_to 'Edit', edit_report_path(report) %>
