@@ -4,7 +4,7 @@
 			<div class="vote">
 			<%= form_for @vote, :remote => true do |f| %>
 				<%= f.hidden_field "report_id", :value => report.id %>
-				<%= f.hidden_field "user_id", :value => current_user.id %>
+				<%= f.hidden_field "user_id", :value => current_user.try(:id) %>
 				<%= f.submit "vote" %>
 			<% end %>
 			</div>
