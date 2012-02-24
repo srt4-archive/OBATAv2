@@ -1,5 +1,3 @@
-<div id="posts">
-<% @reports.each do |report| %>
 <div class="post" id="r<%= report.id %>">
 	<div class="left">
 		<div class="approve">
@@ -23,10 +21,7 @@
 		<div class="issue"><%= report.body %></div>  
 		<div class="username">by: <%= report.user.email %></div>
 		<div>
-	 	<% if user_signed_in? || true %>		
-
-		<% end %>
-		<%= pluralize(report.comments.count, 'comment') %>
+		   <%= pluralize(report.comments.count, 'comment') %>
 		</div>
 	</div>
 	
@@ -38,5 +33,4 @@
     <%= link_to 'Destroy', report, confirm: 'Are you sure?', method: :delete %>
     </div>
 </div>
-<% end %>  
-</div>
+

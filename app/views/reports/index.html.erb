@@ -1,6 +1,6 @@
 <span>
   <%- if user_signed_in? %>
-    <%= "Signed in as #{current_user.email}. Not you?" %>
+    <%= "Signed in as #{current_user.name}. Not you?" %>
     <%= link_to 'Sign out', destroy_user_session_path %>
   <%- else %>
     <%= link_to 'Sign in', new_user_session_path %>
@@ -10,8 +10,9 @@
 
 <h1>Listing reports</h1>
 
-
-<%= render :partial => @reports %>
+<div id="posts">
+	<%= render :partial => @reports %>
+</div>
 
 <br />
 

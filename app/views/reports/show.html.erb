@@ -66,12 +66,20 @@
 	margin-bottom: 10px;
 	padding: 10px;
 }
+
+
 </style>
 
 <div id="issue-description">
 	<div class="issue-left">
 		<div class="issue-approve">
-			approve
+			<div class="vote">
+			<%= form_for @vote, :remote => true do |f| %>
+				<%= f.hidden_field "report_id", :value => @report.id %>
+				<%= f.hidden_field "user_id", :value => current_user.id %>
+				<%= f.submit "vote" %>
+			<% end %>
+			</div>
 		</div>
 		<div class="down-arrow">
 			
@@ -79,7 +87,7 @@
 		<div class="issue-approval-count">
 			<%= @report.votes.count %>
 			<br />
-			<span style="color:gray; font-size:11px">approvals</span>
+			<div style="color:gray; font-size:11px">approvals</div>
 		</div>
 	</div>
 	

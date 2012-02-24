@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=700" />
+
   <title>Obata</title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  
+  <% if mobile_device? %>
+	  <%= stylesheet_link_tag "/stylesheets/jquery.mobile-1.0.1.css" %>
+	  <%= javascript_include_tag "/javascripts/jquery.mobile-1.0.1.js" %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>

@@ -1,4 +1,6 @@
 Obata::Application.routes.draw do
+  resources :verifications
+
   resources :comments
 
   resources :votes

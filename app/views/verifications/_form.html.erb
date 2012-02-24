@@ -1,0 +1,25 @@
+<%= form_for(@verification) do |f| %>
+  <% if @verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@verification.errors.count, "error") %> prohibited this verification from being saved:</h2>
+
+      <ul>
+      <% @verification.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :report %><br />
+    <%= f.text_field :report %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
