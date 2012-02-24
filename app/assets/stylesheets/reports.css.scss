@@ -1,3 +1,69 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+	font-family: "Segoe UI";
+	src: url('http://obata.spencerrthomas.com/segoui.ttf');
+}
+
+#route, msg, h3, #comments {
+	font-family: "Segoe UI", Arial;
+}
+
+.report {
+	background: white;
+	border: solid thin gray;
+	width: 400px;
+	padding: 10px;
+	padding-top: 0px;
+}
+
+.issue-left {
+	float: left;
+	width: 103px;
+}
+
+.issue-right {
+	float: left;
+	margin-left: 40px;
+	width: 237px;
+}
+
+.issue-approve {
+	text-align: center;
+	font-family: 'Segoe UI';
+	color: white;
+	font-size: 18px;
+	background: rgb(247,132,0);
+}
+
+.issue-approval-count {
+	text-align: center;
+	font-size: 36px;
+	margin-left: 4px;
+}
+
+.issue-title {
+	color: rgb(0, 147, 68);
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.issue-desc {
+	margin-top: 10px;
+}
+
+.down-arrow {
+	background: url('http://obata.spencerrthomas.com/down_arrow.png');
+	height: 32px;
+}
+
+#comments {
+	width: 400px;
+}
+
+#comments div.comment {
+	background: rgb(226,226,226);
+	margin-bottom: 10px;
+	padding: 10px;
+}

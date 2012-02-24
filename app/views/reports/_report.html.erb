@@ -1,27 +1,31 @@
-<div class="post" id="r<%= report.id %>">
-	<div class="left">
-		<div class="approve">
-			<% if user_signed_in? %>
-				<div class="vote">
-					<%= form_for(@vote, :remote => true) do |f| %>
-						<%= f.hidden_field "report_id", :value => report.id %>
-						<%= f.hidden_field "user_id", :value => current_user.id %>
-						<%= f.submit "Vote" %>
-					<% end %>
-				</div>
-			<% end %>		
-			<span class="count"><%= report.votes.count %></span>
+<div id="r<%= report.id %>" class="report">
+	<div class="issue-left">
+		<div class="issue-approve">
+			<div class="vote">
+			<%= form_for @vote, :remote => true do |f| %>
+				<%= f.hidden_field "report_id", :value => report.id %>
+				<%= f.hidden_field "user_id", :value => current_user.id %>
+				<%= f.submit "vote" %>
+			<% end %>
+			</div>
+		</div>
+		<div class="down-arrow">
+			
+		</div>
+		<div class="issue-approval-count">
+			<%= report.votes.count %>
+			<br />
+			<div style="color:gray; font-size:11px">approvals</div>
+		</div>
+	</div>
+	
+	<div class="issue-right">
+		<div class="issue-title">
+			<%= report.route %> - <%= report.body %>
 		</div>
 		
-		<div class="arrow-down"></div>
-	</div>
-	<div class="right">
-		<div class="report-date"><b>reported <%= time_ago_in_words(report.created_at) %> ago</b></div>  
-		<div class="route"><%= report.route %></div> 
-		<div class="issue"><%= report.body %></div>  
-		<div class="username">by: <%= report.user.email %></div>
-		<div>
-		   <%= pluralize(report.comments.count, 'comment') %>
+		<div class="issue-desc">
+			Submitted <%= time_ago_in_words(report.created_at) %> ago by <%= report.user.email %>
 		</div>
 	</div>
 	
