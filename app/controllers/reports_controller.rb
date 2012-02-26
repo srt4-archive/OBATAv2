@@ -20,7 +20,6 @@ class ReportsController < ApplicationController
     @comment = current_user.comments.new(
     	:user => current_user,
     	:report_id => @report.id,
-    	:body => "sdkfjdsklfjksdlklsd"
     )
     	
     respond_to do |format|

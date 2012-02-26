@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag '/stylesheets/report.css' %>
+<%= javascript_include_tag '/javascripts/reportSubmit.js' %>
+
 <%= form_for(@report) do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +14,128 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+
+  <div id="page1" class="page"> 
+	  <div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	  </div>  	
+	  <div id="container">
+		<div id="application">	
+			<div class="title">
+				Report an Issue
+			</div>
+			
+			<ul class="categories">
+				<li>Incorrect bus arrival time</li>
+				<li>Bus didn't come to stop</li>
+				<li class="active">Bus came but wasn't listed</li>
+				<li>Incorrect stop information</li>
+				<li>Other</li>
+			</ul>
+
+            <br />
+            <div class="next">Next ></div>
+
+			<div class="progress-bar">
+				<div class="green">
+				</div>
+				
+				<div class="circle completed">
+					<div class="help">
+						Step 1: Select the issue type.
+					</div>
+				</div>
+				
+				<div class="spacing">
+				</div>
+				
+				<div class="circle">
+				</div>
+				
+				<div class="spacing">
+				</div>
+				
+				<div class="circle">
+				</div>
+			</div>
+			<br />
+			<br />
+		</div>
+	</div>
+	  
   </div>
-  <div class="field">
-    <%= f.label :route %><br />
-    <%= f.text_field :route %>
+
+  <div id="page2" class="page">
+    <div id="container">
+      <div id="application">
+            <div class="title">
+              Select a Stop
+            </div>
+
+            <ul class="categories">
+              <li>
+                Enter a stop number <%=  image_tag "ajaxload.gif" %>
+              </li>
+              <li id="find-near">
+                Find a stop near me
+                <ul id="stops-near">
+
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <br />
+      <div class="next">Next ></div>
+      <br />
+      <br />
+      <div class="progress-bar">
+        <div class="green">
+        </div>
+
+        <div class="circle completed">
+          <div class="help">
+            Step 1: Select the issue type.
+          </div>
+        </div>
+
+        <div class="green">
+        </div>
+
+        <div class="circle completed">
+        </div>
+
+        <div class="spacing">
+        </div>
+
+        <div class="circle">
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :stop %><br />
-    <%= f.number_field :stop %>
+
+  <div id="page3" class="page">
+	  <div class="field">
+		<%= f.label :route %><br />
+		<%= f.text_field :route %>
+	  </div>
+	  <div class="field">
+		<%= f.label :stop %><br />
+		<%= f.number_field :stop %>
+	  </div>
   </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div id="page3" class="page">
+	  <div class="field">
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	  </div>
+	  <div class="field">
+		<%= f.label :user %><br />
+		<%= f.text_field :user %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
   </div>
 <% end %>
