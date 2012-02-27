@@ -4,11 +4,18 @@ $(document).ready(function() {
     $(".categories li").click(function() {
         $(".categories li").removeClass("active");
         $(this).addClass("active");
+        updateForms();
+    });
+
+    $("#page1 .categories li").click(function() {
+        $("#report_title").attr("value", $(this).text());
     });
 
     $(".next").click(function() {
         var $par = $(this).parents(".page");
         $par.hide().next().show();
+
+        updateForms();
     });
 
     $("#page2 #find-near").click(function() {
@@ -45,6 +52,12 @@ $(document).ready(function() {
                         .css("color", "black")
                         .css("list-style", "none")
                         .click(function() {
+                            console.log(value);
+
+                            $("#report_stop").attr("value", value.id);
+                            $("#report_lat").attr("value", value.lat);
+                            $("#report_lon").attr("value", value.lon);
+
                             var $ul = $("<ul/>");
                             $.each(value.routes, function(index, stopRoutes){
                                 $ul.append(
@@ -70,6 +83,9 @@ var submitModel = {
     routeID: null,
     description: null
 };
+
+
+var routeList = [];
 
 
 /**
@@ -127,4 +143,12 @@ function stopDistance(stop) {
             stop.lat,
             stop.lon
         ) * 100 ) / 100;
+}
+
+
+/**
+ * Helper method to update the hidden fields in a form, every time the
+ * next button is clicked
+ */
+function updateForms() {
 }

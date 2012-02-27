@@ -3,7 +3,7 @@
 
 
 
-<%= form_for(@report) do |f| %>
+<%=  form_for :report, :remote => true do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
@@ -16,22 +16,8 @@
     </div>
   <% end %>
 
-  
-    
-  <%=  form_for :report, :remote => true do |f| %>
-        <%= f.hidden_field :title %>
-        <%= f.hidden_field :stop %>
-        <%= f.hidden_field :route %>
-        <%= f.hidden_field :body %>
-        <%= f.hidden_field :lat %>
-        <%= f.hidden_field :lon %>
-  <% end %>
-    
-  <div id="page1" class="page"> 
-	  <div class="field">
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	  </div>  	
+
+  <div id="page1" class="page">
 	  <div id="container">
 		<div id="application">	
 			<div class="title">
@@ -45,6 +31,8 @@
 				<li>Incorrect stop information</li>
 				<li>Other</li>
 			</ul>
+
+            <%= f.hidden_field :title %>
 
             <br />
             <div class="next">Next ></div>
@@ -85,12 +73,17 @@
               Select a Stop
             </div>
 
+            <%= f.hidden_field :stop %>
+            <%= f.hidden_field :route %>
+            <%= f.hidden_field :lat %>
+            <%= f.hidden_field :lon %>
+
             <ul class="categories">
               <li>
-                Enter a stop number <%=  image_tag "ajaxload.gif" %>
+                Enter a stop number
               </li>
               <li id="find-near">
-                Find a stop near me
+                Find a stop near me <%=  image_tag "ajaxload.gif", :style => "display:none" %>
                 <ul id="stops-near">
 
                 </ul>
@@ -128,26 +121,15 @@
 
   <div id="page3" class="page">
 	  <div class="field">
-		<%= f.label :route %><br />
-		<%= f.text_field :route %>
-	  </div>
-	  <div class="field">
-		<%= f.label :stop %><br />
-		<%= f.number_field :stop %>
-	  </div>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+      </div>
   </div>
-  
-  <div id="page3" class="page">
-	  <div class="field">
-		<%= f.label :body %><br />
-		<%= f.text_area :body %>
-	  </div>
-	  <div class="field">
-		<%= f.label :user %><br />
-		<%= f.text_field :user %>
-	  </div>
+
+  <div id="page4" class="page">
 	  <div class="actions">
 		<%= f.submit %>
 	  </div>
   </div>
+
 <% end %>
