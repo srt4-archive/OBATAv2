@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223233537) do
+ActiveRecord::Schema.define(:version => 20120227044246) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(:version => 20120223233537) do
     t.integer  "stop"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.decimal  "lat",        :precision => 15, :scale => 10
+    t.decimal  "lon",        :precision => 15, :scale => 10
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
