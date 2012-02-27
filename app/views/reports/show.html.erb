@@ -9,7 +9,7 @@
 		<div class="comment">
 			<span style="font-size: 16px">"<i><%= c.body %></i>"</span>
 			<br /><%= time_ago_in_words(c.created_at) %> ago by 
-			<%= c.user.email %>
+			<%= c.user.try(:email) %>
 			<br /> 
 			<br />
 		</div>
@@ -20,7 +20,7 @@
 <%= form_for @comment do |f| %>
 	<%= f.text_area "body" %> 
 	<%= f.hidden_field "report_id", :value => @report.id %>
-	<%= f.hidden_field "user_id", :value => current_user.id %>
+	<%= f.hidden_field "user_id", :value => current_user.try(:id) %>
 	<%= f.submit "Comment" %>
 <% end %>
 

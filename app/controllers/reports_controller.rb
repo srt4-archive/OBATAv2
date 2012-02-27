@@ -16,11 +16,15 @@ class ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @vote = Vote.new(params[:vote])
-    
+   
+    if user_signed_in? 
     @comment = current_user.comments.new(
     	:user => current_user,
     	:report_id => @report.id,
     )
+    else
+    @comment = Comment.new( :report_id => @report.id )
+    end
     	
     respond_to do |format|
       format.html # show.html.erb
