@@ -1,29 +1,33 @@
 $(document).ready(function() {
-   $("#page1").show();
+    $("#page1").show();
 
-    $(".categories li").click(function() {
+    $(document).on("click", ".categories li",  function() {
         $(".categories li").removeClass("active");
         $(this).addClass("active");
-        updateForms();
     });
 
     $("#page1 .categories li").click(function() {
         $("#report_title").attr("value", $(this).text());
     });
 
+    $("#page3 .categories li").live("click", function() {
+
+    });
+
     $(".next").click(function() {
         var $par = $(this).parents(".page");
         $par.hide().next().show();
-
-        updateForms();
     });
 
     $("#page2 #find-near").click(function() {
         $("#stop-finder").show();
     });
 
-    $("#find-near").click(function() {
-        var $loadingImg = $(this).children(".loading");; // TODO: replace this with class/ID search
+    var $routesUl = $("#page3 .categories");
+
+    // Using .one() so that the event is called once and removed
+    $("#find-near").one("click", function() {
+        var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
         $loadingImg.show();
 
 
@@ -36,8 +40,6 @@ $(document).ready(function() {
              lon: $.longitude,
              radius: 300
         };
-
-
 
         $.ajax({
             url: url,
@@ -62,13 +64,23 @@ $(document).ready(function() {
                             $("#report_lat").attr("value", value.lat);
                             $("#report_lon").attr("value", value.lon);
 
-                            var $ul = $("<ul/>");
-                            $.each(value.routes, function(index, stopRoutes){
-                                $ul.append(
-                                    $("<li/>").text(wordToUpper(stopRoutes.shortName))
+                            routeList = value.routes;
+                            $.each(routeList, function(key, stopRoutes) {
+                                // find whether route long name or route desc is longer, pick it
+                                var longName = stopRoutes.longName.length > stopRoutes.description?
+                                    stopRoutes.longName :
+                                    stopRoutes.description;
+                                $routesUl.append( 
+                                    $("<li/>")
+                                        .text(
+                                            wordToUpper(stopRoutes.shortName + " - " + longName)
+                                        )
+                                        .click(function() {
+                                            console.log($("#report_route"));
+                                            $("#report_route").attr("value", stopRoutes.id);
+                                        })
                                 );
                             });
-                            $li.append($ul);
                         });
                     $("#stops-near").append(
                           $li
@@ -133,7 +145,6 @@ function sortStops(stopA, stopB) {
     return distDiff + routeDiff;
 }
 
-
 /**
  * Calculates the distance from the current user to the specified stop.
  * @param stop
@@ -149,10 +160,10 @@ function stopDistance(stop) {
         ) * 100 ) / 100;
 }
 
-
 /**
  * Helper method to update the hidden fields in a form, every time the
  * next button is clicked
  */
 function updateForms() {
+
 }

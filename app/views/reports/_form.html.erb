@@ -3,7 +3,7 @@
 
 
 
-<%=  form_for :report, :remote => true do |f| %>
+<%=  form_for @report do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
@@ -74,7 +74,6 @@
             </div>
 
             <%= f.hidden_field :stop %>
-            <%= f.hidden_field :route %>
             <%= f.hidden_field :lat %>
             <%= f.hidden_field :lon %>
 
@@ -119,17 +118,92 @@
     </div>
   </div>
 
+
   <div id="page3" class="page">
-	  <div class="field">
-        <%= f.label :body %>
-        <%= f.text_area :body %>
+      <div id="container">
+        <div id="application">
+          <div class="title">
+            Select a Route
+          </div>
+
+          <%= f.hidden_field :route %>
+
+          <ul class="categories">
+
+          </ul>
+        </div>
+        <br />
+        <div class="next">Next ></div>
+        <br />
+        <br />
+        <div class="progress-bar">
+          <div class="green">
+          </div>
+
+          <div class="circle completed">
+            <div class="help">
+              Step 1: Select the issue type.
+            </div>
+          </div>
+
+          <div class="green">
+          </div>
+
+          <div class="circle completed">
+          </div>
+
+          <div class="spacing">
+          </div>
+
+          <div class="circle">
+          </div>
+        </div>
       </div>
   </div>
 
   <div id="page4" class="page">
-	  <div class="actions">
-		<%= f.submit %>
-	  </div>
+    <div id="container">
+      <div id="application">
+        <div class="title">
+          Any additional comments?
+        </div>
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_area :body %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </div>
+      <br />
+      <div class="next">Next ></div>
+      <br />
+      <br />
+      <div class="progress-bar">
+        <div class="green">
+        </div>
+
+        <div class="circle completed">
+          <div class="help">
+            Step 1: Select the issue type.
+          </div>
+        </div>
+
+        <div class="green">
+        </div>
+
+        <div class="circle completed">
+        </div>
+
+        <div class="spacing">
+        </div>
+
+        <div class="circle">
+        </div>
+      </div>
+    </div>
+
   </div>
 
 <% end %>

@@ -12,13 +12,20 @@ $(document).ready(function() {
 			+ position.coords.longitude);
         $.latitude = position.coords.latitude;
         $.longitude = position.coords.longitude;
-	
+
+        // TODO: factor this into a different file
+        try {
+            showDistances();
+        }
+        catch(e) {
+
+        }
 	}
-	
+
 	function error(msg) {
-	
+
 		$(".notice")
 			.text("Error" + msg );
 	}
-	
+
 });

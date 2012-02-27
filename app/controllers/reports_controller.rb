@@ -52,6 +52,8 @@ class ReportsController < ApplicationController
     	:stop => params[:report][:stop],
     	:body => params[:report][:body],
     	:title => params[:report][:title],
+      :lat => params[:report][:lat],
+      :lon => params[:report][:lon],
     	:user => current_user
     )
 
