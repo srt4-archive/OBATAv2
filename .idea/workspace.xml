@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aff00c6e-b383-4248-b9ef-14a79d62c7e2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/reportSubmit.js" afterPath="$PROJECT_DIR$/public/javascripts/reportSubmit.js" />
     </list>
@@ -28,7 +29,7 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="31" selection-start="1970" selection-end="1970" vertical-scroll-proportion="-23.25">
+            <state line="85" column="117" selection-start="1955" selection-end="1955" vertical-scroll-proportion="-22.0">
               <folding />
             </state>
           </provider>
@@ -46,7 +47,7 @@
       <file leaf-file-name="reportSubmit.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/reportSubmit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="0" selection-start="2624" selection-end="2624" vertical-scroll-proportion="1.0716846">
+            <state line="40" column="20" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.5197133">
               <folding />
             </state>
           </provider>
@@ -757,9 +758,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/reports.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="31" selection-start="1970" selection-end="1970" vertical-scroll-proportion="-23.25">
+        <state line="53" column="45" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -771,16 +772,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/reports.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="45" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
+        <state line="85" column="117" selection-start="1955" selection-end="1955" vertical-scroll-proportion="-22.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/reportSubmit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2624" selection-end="2624" vertical-scroll-proportion="1.0716846">
+        <state line="40" column="20" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.5197133">
           <folding />
         </state>
       </provider>

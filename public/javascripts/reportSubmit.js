@@ -23,6 +23,10 @@ $(document).ready(function() {
     });
 
     $("#find-near").click(function() {
+        var $loadingImg = $(this).children(".loading");; // TODO: replace this with class/ID search
+        $loadingImg.show();
+
+
         //var url = "http://api.onebusaway.org/api/where/schedule-for-stop/1_" + $("#stopid").attr('value') + ".json?key=TEST";
         var url = "http://api.onebusaway.org/api/where/stops-for-location.json";
 
@@ -40,10 +44,12 @@ $(document).ready(function() {
             data: data,
             dataType: "jsonp",
             success: function(result) {
-                                 console.log(result);
+                $loadingImg.hide();
+
                 // sort the stops
                 result.data.stops.sort(sortStops);
                 $.each(result.data.stops, function(key, value) {
+
 
                     var distance = stopDistance(value);
 
@@ -52,8 +58,6 @@ $(document).ready(function() {
                         .css("color", "black")
                         .css("list-style", "none")
                         .click(function() {
-                            console.log(value);
-
                             $("#report_stop").attr("value", value.id);
                             $("#report_lat").attr("value", value.lat);
                             $("#report_lon").attr("value", value.lon);
