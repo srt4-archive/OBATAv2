@@ -1,6 +1,9 @@
 class RouteController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
+  """
+  Queries Metro's reroutes page and generates Alert objects from what is found
+  """
   def show
     require('nokogiri')
     require('open-uri')
@@ -11,6 +14,7 @@ class RouteController < ApplicationController
 
     result_array = Array.new
 
+    # Don't fetch new alerts if we already did yesterday
     if yesterday > last_alert
       doc = Nokogiri::HTML(open('http://metro.kingcounty.gov/up/rr/reroutes.html'))
 
@@ -43,8 +47,9 @@ class RouteController < ApplicationController
     # TODO: Alert.all becomes Alert.where("endDate > currentDate")
 
     respond_to do |format|
-      format.html { render xml: open("http://google.com") }
+      #format.html { render xml: open("http://google.com") }
       format.json { render json: Alert.all }
+      format.xml { render xml: Alert.all }
     end
 
   end

@@ -22,15 +22,29 @@ $(document).ready(function() {
 
     // update routesList
     $("#page2 .next").click(function() {
+
+        var routeElems = new Array();
+
         $.each(routeList, function(key, route) {
             var routeDesc =
                 route.longName.length > route.description.lenth ?
                     route.longName :
                     route.description;
-
+            
+            var $routeElem = $("<li/>").text(route.shortName + " - " + wordToUpper(routeDesc));
+            
             $("#page3 .routes").append(
-                $("<li/>").text(route.shortName + " - " + routeDesc)
+                $routeElem
             );
+            var $detailElem = $("<div/>").css({
+                "color": "red",
+                "font-size": "12px",
+                "padding-left": "10px"
+            });
+
+            $routeElem.append($detailElem);
+
+            getServiceAlerts(route.shortName, $detailElem);
         });
     });
 
@@ -128,7 +142,6 @@ function updateForms() {
 function loadStops(lat, lon) {
     var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
     $loadingImg.show();
-    console.log("Test");
 
     //var url = "http://api.onebusaway.org/api/where/schedule-for-stop/1_" + $("#stopid").attr('value') + ".json?key=TEST";
     var url = "http://api.onebusaway.org/api/where/stops-for-location.json";
@@ -161,7 +174,6 @@ function loadStops(lat, lon) {
                     }
                 ).on("click", function() {
                     // populate the form with stop ID
-                    console.log(value.id);
                     $("#report_stop").attr("value", value.id);
                     routeList = value.routes;
                 });
@@ -170,4 +182,23 @@ function loadStops(lat, lon) {
             });
         }
     });
+}
+
+/**
+ * Fetches service alerts, accepts a callback function
+ */
+function getServiceAlerts(route, elem) {
+      $.getJSON("/routes/" + route + "/alerts.json", function(data) {
+          $.each(data, function(key, alert){
+              console.log(alert);
+              elem.text("Until " + alert.end + ": " + alert.details);
+          });
+      });
+}
+
+/**
+ *
+ */
+function serviceAlertCallback() {
+
 }

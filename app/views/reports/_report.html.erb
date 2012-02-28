@@ -25,16 +25,24 @@
 		</div>
 		
 		<div class="issue-desc">
-			Submitted <span class="distance-away">??</span> miles away, <%= time_ago_in_words(report.created_at) %> ago by <%= report.user.email %>
 
-		        <br />
-			<br />
-			<%= report.body %>
-                        <br />
-			<br />
-                        Stop #: <%= report.stop %>
+            <br />
 
-		</div>
+            <div style="height: 18px; overflow: auto">
+            <%= report.body %>
+            </div>
+
+            Stop #: <%= report.stop %>
+
+            <br />
+
+            <span style="font-size: 10px">
+            Submitted <span class="distance-away">??</span> miles away,
+            <%= time_ago_in_words(report.created_at) %> ago by <%= report.user.email %>
+            </span>
+
+
+        </div>
 	</div>
 	
 	<div style="clear:both"></div>

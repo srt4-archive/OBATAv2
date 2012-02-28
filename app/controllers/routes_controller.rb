@@ -13,7 +13,7 @@ class RoutesController < ApplicationController
   # GET /routes/1
   # GET /routes/1.json
   def show
-    @route = Route.find(params[:id])
+    @route = Route.find_by_number(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

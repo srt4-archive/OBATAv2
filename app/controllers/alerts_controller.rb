@@ -4,7 +4,7 @@ class AlertsController < ApplicationController
   def index
     if params[:route_id]
       route = Route.find_last_by_number(params[:route_id])
-      @alerts = Alert.find_all_by_route_id(route.id)
+      @alerts = Alert.find_all_by_route_id(route.try(:id))
     else
       @alerts = Alert.all
     end
@@ -19,6 +19,7 @@ class AlertsController < ApplicationController
   # GET /alerts/1.json
   def show
     @alert = Alert.find(params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb
