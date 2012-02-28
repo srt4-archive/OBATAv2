@@ -8,8 +8,18 @@
 <div id="map" style="width:100%; height: 300px"></div>
 
 <script type="text/javascript">
+
 // initialize the map on the "map" div
 var map = new L.Map('map');
+
+// create the bus stop icon
+var BusIcon = L.Icon.extend({
+    iconUrl: "/images/icon-bus.gif",
+    iconSize: new L.Point(18, 18),
+    shadowSize: new L.Point(0, 0)
+});
+
+var busIcon = new BusIcon();
 
 // create a CloudMade tile layer (or use other provider of your choice)
 var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/4bdf8a2626c048129923f7597f80acce/45831/256/{z}/{x}/{y}.png', {
@@ -17,22 +27,26 @@ var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/4bdf8a2626c048129
 });
 
 // add the CloudMade layer to the map set the view to a given center and zoom
-map.addLayer(cloudmade).setView(new L.LatLng(51.505, -0.09), 13);
-
-// create a marker in the given location and add it to the map
-var marker = new L.Marker(new L.LatLng(51.5, -0.09));
-map.addLayer(marker);
-
-// attach a given HTML content to the marker and immediately open it
-marker.bindPopup("A pretty CSS3 popup.<br />Easily customizable.").openPopup();
+map.addLayer(cloudmade).setView(new L.LatLng(47.6562508, -122.3105668), 15);
 
 
 // invalidizeSize on every click of the next button
 $(document).ready(function() {
     $('.next').click(function() {
         map.invalidateSize();
-    })                       ;
-})                            ;
+    });
+});
+
+// create the layer group for stops
+$.leafletStopsLayer = new L.LayerGroup();
+map.addLayer($.leafletStopsLayer);
+
+// When the map is dragged... load stops from the OBA api
+map.on('dragend', function(e) {
+    e.latlng = map.getCenter();
+    loadStops(e.latlng.lat, e.latlng.lng);
+});
+
 
 </script>
 

@@ -16,6 +16,7 @@ $(document).ready(function() {
         // TODO: factor this into a different file
         try {
             showDistances();
+            loadStops();
         }
         catch(e) {
 

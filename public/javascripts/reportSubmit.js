@@ -26,69 +26,8 @@ $(document).ready(function() {
     var $routesUl = $("#page3 .categories");
 
     // Using .one() so that the event is called once and removed
-    $("#find-near").one("click", function() {
-        var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
-        $loadingImg.show();
+    //$("#find-near").one("click", function() {
 
-
-        //var url = "http://api.onebusaway.org/api/where/schedule-for-stop/1_" + $("#stopid").attr('value') + ".json?key=TEST";
-        var url = "http://api.onebusaway.org/api/where/stops-for-location.json";
-
-        var data = {
-             key: "TEST",
-             lat: $.latitude,
-             lon: $.longitude,
-             radius: 300
-        };
-
-        $.ajax({
-            url: url,
-            data: data,
-            dataType: "jsonp",
-            success: function(result) {
-                $loadingImg.hide();
-
-                // sort the stops
-                result.data.stops.sort(sortStops);
-                $.each(result.data.stops, function(key, value) {
-
-
-                    var distance = stopDistance(value);
-
-                    var $li = $("<li>")
-                        .text(distance + " miles ( " + value.routes.length + " routes ) - "  + wordToUpper(value.name))
-                        .css("color", "black")
-                        .css("list-style", "none")
-                        .click(function() {
-                            $("#report_stop").attr("value", value.id);
-                            $("#report_lat").attr("value", value.lat);
-                            $("#report_lon").attr("value", value.lon);
-
-                            routeList = value.routes;
-                            $.each(routeList, function(key, stopRoutes) {
-                                // find whether route long name or route desc is longer, pick it
-                                var longName = stopRoutes.longName.length > stopRoutes.description?
-                                    stopRoutes.longName :
-                                    stopRoutes.description;
-                                $routesUl.append( 
-                                    $("<li/>")
-                                        .text(
-                                            wordToUpper(stopRoutes.shortName + " - " + longName)
-                                        )
-                                        .click(function() {
-                                            console.log($("#report_route"));
-                                            $("#report_route").attr("value", stopRoutes.id);
-                                        })
-                                );
-                            });
-                        });
-                    $("#stops-near").append(
-                          $li
-                    );
-                });
-            }
-        });
-    });
 });
 
 var submitModel = {
@@ -166,4 +105,82 @@ function stopDistance(stop) {
  */
 function updateForms() {
 
+}
+
+
+/**
+ * Loads stops into the list, using the OBA api
+ */
+function loadStops(lat, lon) {
+    var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
+    $loadingImg.show();
+    console.log("Test");
+
+    //var url = "http://api.onebusaway.org/api/where/schedule-for-stop/1_" + $("#stopid").attr('value') + ".json?key=TEST";
+    var url = "http://api.onebusaway.org/api/where/stops-for-location.json";
+
+    var data = {
+        key: "TEST",
+        lat: lat,
+        lon: lon,
+        radius: 600
+    };
+
+    $.ajax({
+        url: url,
+        data: data,
+        dataType: "jsonp",
+        success: function(result) {
+            $loadingImg.hide();
+
+            // sort the stops
+            result.data.stops.sort(sortStops);
+
+            $.leafletStopsLayer.clearLayers();
+
+            $.each(result.data.stops, function(key, value) {
+                $.leafletStopsLayer
+                    .addLayer(
+                        new L.Marker(
+                            new L.LatLng(value.lat, value.lon),
+                            {icon: busIcon}
+                    )
+                );
+
+
+                var distance = stopDistance(value);
+
+                var $li = $("<li>")
+                    .text(distance + " miles ( " + value.routes.length + " routes ) - "  + wordToUpper(value.name))
+                    .css("color", "black")
+                    .css("list-style", "none")
+                    .click(function() {
+                        $("#report_stop").attr("value", value.id);
+                        $("#report_lat").attr("value", value.lat);
+                        $("#report_lon").attr("value", value.lon);
+
+                        routeList = value.routes;
+                        $.each(routeList, function(key, stopRoutes) {
+                            // find whether route long name or route desc is longer, pick it
+                            var longName = stopRoutes.longName.length > stopRoutes.description?
+                                stopRoutes.longName :
+                                stopRoutes.description;
+                            $routesUl.append(
+                                $("<li/>")
+                                    .text(
+                                    wordToUpper(stopRoutes.shortName + " - " + longName)
+                                )
+                                    .click(function() {
+                                        console.log($("#report_route"));
+                                        $("#report_route").attr("value", stopRoutes.id);
+                                    })
+                            );
+                        });
+                    });
+                $("#stops-near").append(
+                    $li
+                );
+            });
+        }
+    });
 }
