@@ -139,14 +139,19 @@ function loadStops(lat, lon) {
             $.leafletStopsLayer.clearLayers();
 
             $.each(result.data.stops, function(key, value) {
-                $.leafletStopsLayer
-                    .addLayer(
-                        new L.Marker(
-                            new L.LatLng(value.lat, value.lon),
-                            {icon: busIcon}
-                    )
-                );
 
+                var marker = new L.Marker(
+                    new L.LatLng(value.lat, value.lon),
+                    {
+                        icon: busIcon,
+                    }
+                ).on("click", function() {
+                    // populate the form with stop ID
+                    console.log(value.id);
+                    $("#report_stop").attr("value", value.id);
+                });
+
+                $.leafletStopsLayer.addLayer(marker);
 
                 var distance = stopDistance(value);
 

@@ -76,11 +76,11 @@
             <%= f.hidden_field :lat %>
             <%= f.hidden_field :lon %>
 
-            <%= f.text_field :stop, { :value => "Enter a stop ID or address", :onclick => "this.value=''" } %>
+            <%= f.text_field :stop, { :value => "Enter a stop ID or address",
+                                      :onclick => "this.value=''",
+                                      :style => "font-size: 18px" } %>
 
             <%= render 'shared/map' %>
-
-      </div>
       <br />
       <div class="next">Next ></div>
       <br />
@@ -90,9 +90,6 @@
         </div>
 
         <div class="circle completed">
-          <div class="help">
-            Step 1: Select the issue type.
-          </div>
         </div>
 
         <div class="green">

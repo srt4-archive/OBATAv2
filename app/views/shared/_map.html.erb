@@ -34,6 +34,7 @@ map.addLayer(cloudmade).setView(new L.LatLng(47.6562508, -122.3105668), 15);
 $(document).ready(function() {
     $('.next').click(function() {
         map.invalidateSize();
+        map.locateAndSetView(/*MaxZoom*/ 15);
     });
 });
 
@@ -45,6 +46,11 @@ map.addLayer($.leafletStopsLayer);
 map.on('dragend', function(e) {
     e.latlng = map.getCenter();
     loadStops(e.latlng.lat, e.latlng.lng);
+});
+
+// find current location and update the map
+map.on('locationfound', function(e) {
+   loadStops(e.latlng.lat, e.latlng.lng);
 });
 
 
