@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aff00c6e-b383-4248-b9ef-14a79d62c7e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/route_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/route_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/alerts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/alerts_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/alerts/index.html.erb" afterPath="$PROJECT_DIR$/app/views/alerts/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="obata.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,24 +40,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="38" selection-start="2536" selection-end="2536" vertical-scroll-proportion="-13.291667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reports_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/reports_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="76" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="route_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/route_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/routes/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="29" selection-start="279" selection-end="279" vertical-scroll-proportion="0.3183024">
+            <state line="25" column="25" selection-start="512" selection-end="512" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
@@ -87,7 +70,16 @@
       <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="39" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
+            <state line="23" column="16" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/alerts/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="20" selection-start="518" selection-end="518" vertical-scroll-proportion="-15.0">
               <folding />
             </state>
           </provider>
@@ -97,6 +89,15 @@
         <entry file="file://$PROJECT_DIR$/app/models/alert.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="28" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alerts_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/alerts_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="46" selection-start="597" selection-end="597" vertical-scroll-proportion="0.46272492">
               <folding />
             </state>
           </provider>
@@ -138,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/stylesheets/report.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/reports.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/distance.js" />
         <option value="$PROJECT_DIR$/app/views/reports/index.html.erb" />
@@ -149,10 +149,12 @@
         <option value="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/reportSubmit.js" />
         <option value="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/models/alert.rb" />
         <option value="$PROJECT_DIR$/app/controllers/route_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/routes/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/alerts/index.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/alerts_controller.rb" />
       </list>
     </option>
   </component>
@@ -413,6 +415,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alerts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -942,20 +966,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/reports.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="45" selection-start="893" selection-end="893" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/report.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="49" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_map.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="43" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.0">
@@ -1026,9 +1036,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/route_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="19" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/routes/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="25" selection-start="512" selection-end="512" vertical-scroll-proportion="-15.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="39" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0">
+        <state line="23" column="16" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/alerts/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="20" selection-start="518" selection-end="518" vertical-scroll-proportion="-15.0">
           <folding />
         </state>
       </provider>
@@ -1040,16 +1071,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/route_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/alerts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="19" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/routes/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="279" selection-end="279" vertical-scroll-proportion="0.3183024">
+        <state line="25" column="46" selection-start="597" selection-end="597" vertical-scroll-proportion="0.46272492">
           <folding />
         </state>
       </provider>

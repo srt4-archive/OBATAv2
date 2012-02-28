@@ -2,7 +2,12 @@ class AlertsController < ApplicationController
   # GET /alerts
   # GET /alerts.json
   def index
-    @alerts = Alert.all
+    if params[:route_id]
+      route = Route.find_last_by_number(params[:route_id])
+      @alerts = Alert.find_all_by_route_id(route.id)
+    else
+      @alerts = Alert.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

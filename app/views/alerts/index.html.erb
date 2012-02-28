@@ -15,8 +15,8 @@
 
 <% @alerts.each do |alert| %>
   <tr>
-    <td><%= alert.agency %></td>
-    <td><%= alert.route %></td>
+    <td><%= alert.agency.name %></td>
+    <td><%= alert.route.number %></td>
     <td><%= alert.details %></td>
     <td><%= alert.start %></td>
     <td><%= alert.end %></td>
