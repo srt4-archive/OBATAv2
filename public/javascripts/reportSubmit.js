@@ -19,6 +19,21 @@ $(document).ready(function() {
         $par.hide().next().show();
     });
 
+
+    // update routesList
+    $("#page2 .next").click(function() {
+        $.each(routeList, function(key, route) {
+            var routeDesc =
+                route.longName.length > route.description.lenth ?
+                    route.longName :
+                    route.description;
+
+            $("#page3 .routes").append(
+                $("<li/>").text(route.shortName + " - " + routeDesc)
+            );
+        });
+    });
+
     $("#page2 #find-near").click(function() {
         $("#stop-finder").show();
     });
@@ -50,15 +65,14 @@ var routeList = [];
  */
 function wordToUpper(strSentence) {
     strSentence = strSentence.toLowerCase().replace(/\b[a-z]/g, convertToUpper);
-    strSentence = strSentence
-        .replace("Ne ", "NE ")
-        .replace("Se ", "SE ")
-        .replace("Nw ", "NW ")
-        .replace("Sw ", "SW ")
-        .replace(" Ne", " NE")
-        .replace(" Se", " SE")
-        .replace(" Nw", " NW")
-        .replace(" Sw", " SW");
+
+    var replaceArray = [ "Ne", "Nw", "Se", "Sw" ];
+    for(token in replaceArray) {
+        strSentence = strSentence
+            .replace(" " + token, " " + token.toUpperCase())
+            .replace(token + " ", token.toUpperCase() + " ");
+
+    }
     return strSentence;
     function convertToUpper() {
         if (arguments == "NE")
@@ -143,48 +157,16 @@ function loadStops(lat, lon) {
                 var marker = new L.Marker(
                     new L.LatLng(value.lat, value.lon),
                     {
-                        icon: busIcon,
+                        icon: busIcon
                     }
                 ).on("click", function() {
                     // populate the form with stop ID
                     console.log(value.id);
                     $("#report_stop").attr("value", value.id);
+                    routeList = value.routes;
                 });
 
-                $.leafletStopsLayer.addLayer(marker);
-
-                var distance = stopDistance(value);
-
-                var $li = $("<li>")
-                    .text(distance + " miles ( " + value.routes.length + " routes ) - "  + wordToUpper(value.name))
-                    .css("color", "black")
-                    .css("list-style", "none")
-                    .click(function() {
-                        $("#report_stop").attr("value", value.id);
-                        $("#report_lat").attr("value", value.lat);
-                        $("#report_lon").attr("value", value.lon);
-
-                        routeList = value.routes;
-                        $.each(routeList, function(key, stopRoutes) {
-                            // find whether route long name or route desc is longer, pick it
-                            var longName = stopRoutes.longName.length > stopRoutes.description?
-                                stopRoutes.longName :
-                                stopRoutes.description;
-                            $routesUl.append(
-                                $("<li/>")
-                                    .text(
-                                    wordToUpper(stopRoutes.shortName + " - " + longName)
-                                )
-                                    .click(function() {
-                                        console.log($("#report_route"));
-                                        $("#report_route").attr("value", stopRoutes.id);
-                                    })
-                            );
-                        });
-                    });
-                $("#stops-near").append(
-                    $li
-                );
+               map.addLayer(marker);
             });
         }
     });

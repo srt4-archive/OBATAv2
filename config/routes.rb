@@ -6,6 +6,8 @@ Obata::Application.routes.draw do
   resources :votes
 
   resources :reports
+  
+  resources :route
 
   devise_for :users
 
