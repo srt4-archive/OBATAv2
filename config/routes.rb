@@ -1,4 +1,10 @@
 Obata::Application.routes.draw do
+  resources :alerts
+
+  resources :routes
+
+  resources :agencies
+
   resources :verifications
 
   resources :comments

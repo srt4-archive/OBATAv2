@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227044246) do
+ActiveRecord::Schema.define(:version => 20120228111030) do
+
+  create_table "agencies", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "alerts", :force => true do |t|
+    t.integer  "agency_id"
+    t.integer  "route_id"
+    t.text     "details"
+    t.date     "start"
+    t.date     "end"
+    t.datetime "retrieved"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "alerts", ["agency_id", "route_id", "details", "start", "end"], :name => "Report_index", :unique => true
+  add_index "alerts", ["agency_id"], :name => "index_alerts_on_agency_id"
+  add_index "alerts", ["route_id"], :name => "index_alerts_on_route_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -37,6 +58,16 @@ ActiveRecord::Schema.define(:version => 20120227044246) do
   end
 
   add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
+
+  create_table "routes", :force => true do |t|
+    t.integer  "number"
+    t.string   "name"
+    t.integer  "agency_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "routes", ["agency_id"], :name => "index_routes_on_agency_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  agency: 
+  route: 
+  details: MyText
+  start: 2012-02-28
+  end: 2012-02-28
+  retrieved: 2012-02-28 02:50:38
+
+two:
+  agency: 
+  route: 
+  details: MyText
+  start: 2012-02-28
+  end: 2012-02-28
+  retrieved: 2012-02-28 02:50:38
