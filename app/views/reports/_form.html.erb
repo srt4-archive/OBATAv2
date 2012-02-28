@@ -70,24 +70,16 @@
     <div id="container">
       <div id="application">
             <div class="title">
-              Select a Stop
+              Report an Issue
             </div>
 
-            <%= f.hidden_field :stop %>
             <%= f.hidden_field :lat %>
             <%= f.hidden_field :lon %>
 
-            <ul class="categories">
-              <li>
-                Enter a stop number
-              </li>
-              <li id="find-near">
-                Find a stop near me <%=  image_tag "ajaxload.gif", { :style => "display:none", :class =>  "loading" } %>
-                <ul id="stops-near">
+            <%= f.text_field :stop, { :value => "Enter a stop ID or address", :onclick => "this.value=''" } %>
 
-                </ul>
-              </li>
-            </ul>
+            <%= render 'shared/map' %>
+
       </div>
       <br />
       <div class="next">Next ></div>
