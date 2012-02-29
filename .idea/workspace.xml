@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aff00c6e-b383-4248-b9ef-14a79d62c7e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/alerts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/alerts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_report.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_report.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/route_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/route_controller.rb" />
     </list>
     <ignored path="obata.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="route_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/route_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="53" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.59768635">
+            <state line="12" column="51" selection-start="337" selection-end="337" vertical-scroll-proportion="0.057840616">
               <folding />
             </state>
           </provider>
@@ -143,7 +142,6 @@
         <option value="$PROJECT_DIR$/app/views/routes/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/alerts/index.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/route_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/routes_controller.rb" />
         <option value="$PROJECT_DIR$/public/javascripts/viewReports.js" />
         <option value="$PROJECT_DIR$/app/models/route.rb" />
@@ -153,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reports/_report.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/alerts_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/route_controller.rb" />
       </list>
     </option>
   </component>
@@ -1073,7 +1072,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/route_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="53" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.59768635">
+        <state line="12" column="51" selection-start="337" selection-end="337" vertical-scroll-proportion="0.057840616">
           <folding />
         </state>
       </provider>
