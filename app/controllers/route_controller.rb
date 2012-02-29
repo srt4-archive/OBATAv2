@@ -10,7 +10,7 @@ class RouteController < ApplicationController
     require('date')
 
     yesterday = 1.day.ago
-    last_alert = Alert.find(:last).try(:updated_at)
+    last_alert = Alert.find(:last).try(:updated_at) || 100.days.ago
 
     result_array = Array.new
 
