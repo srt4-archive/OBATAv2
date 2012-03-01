@@ -1,21 +1,30 @@
 <%=  javascript_include_tag "/javascripts/viewReports.js" %>
+<div class="header">
+  <h1>Issues Log</h1>
 
-<span>
-  <%- if user_signed_in? %>
-    <%= "Signed in as #{current_user.name}. Not you?" %>
-    <%= link_to 'Sign out', destroy_user_session_path %>
-  <%- else %>
-    <%= link_to 'Sign in', new_user_session_path %>
-  <%- end %>
-</span>
+  <div class="new-report button">
+    <%= link_to '+', new_report_path %>
+  </div>
 
+  <div class="notifications button">
+    -
+  </div>
 
-<h1>Listing reports</h1>
+  <div class="filter button">
+    V
+  </div>
+</div>
 
 <div id="posts">
 	<%= render :partial => @reports %>
 </div>
 
-<br />
+<span>
+  <%- if user_signed_in? %>
+    <%= "Signed in as #{current_user.name}. Not you?" %>
+      <%= link_to 'Sign out', destroy_user_session_path %>
+  <%- else %>
+    <%= link_to 'Sign in', new_user_session_path %>
+  <%- end %>
+</span>
 
-<%= link_to 'New Report', new_report_path %>

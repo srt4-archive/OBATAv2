@@ -4,7 +4,15 @@ class ReportsController < ApplicationController
   def index
     @reports = Report.all
 	  @vote = Vote.new(params[:vote])
-	
+
+
+    if mobile_device?
+      respond_to do |format|
+        format.html { render :layout => "mobile" }
+      end
+      return
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @reports }

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <%= yield :head %>
+    <%= javascript_include_tag :jquery %>
+    <%= stylesheet_link_tag "/stylesheets/mobile/main.css" %>
+    <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=400, initial-scale=0.8"/>
+
+</head>
+<body>
+    <%= yield %>
+</body>
+</html>

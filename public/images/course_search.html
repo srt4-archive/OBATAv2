@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Course Search</title>
+</head>
+<body>
+    <h1>
+        Course Search</h1>
+    <form method="get" action="course">
+    <div>
+        Search Form:
+        <br />
+        <label for="year">
+            Year:</label><input class="year" id="year" type="text" name="year" value="2008" /><br />
+        <label for="quarter">
+            Quarter:</label><select class="quarter" id="quarter" name="quarter"><option value="">select...</option>
+                <option value="summer">summer </option>
+                <option value="autumn" selected="selected">autumn </option>
+                <option value="winter">winter </option>
+                <option value="spring">spring </option>
+            </select><br />
+        <label for="curriculum_abbreviation">
+            Curriculum:</label><input class="curriculum_abbreviation" id="curriculum_abbreviation" type="text" name="curriculum_abbreviation"
+                value="cse" /><br />
+        <label for="course_number">
+            Course number:</label><input class="course_number" id="course_number" type="text" name="course_number"
+                value="142" /><br />
+        <label for="course_title_starts">
+            Title starts with:</label><input class="course_title_starts" id="course_title_starts" type="text" name="course_title_starts"
+                value="program" /><br />
+         <label for="course_title_contains">
+            Title contains:</label><input class="course_title_contains" id="course_title_contains" type="text" name="course_title_contains"
+                value="program" /><br />
+         <label for="sort_by">
+         Sort by:</label> <input type="radio" class="sort_by" id="sort_by" name="sort_by" checked="checked" />
+              Curriculm Ascending
+        <br/>
+        <label for="page_size">Page Size</label> equals:
+            <select class="page_size" id="page_size" name="page_size"><option value="10" selected="selected">
+                10
+              </option><option value="25">
+                25
+              </option><option value="50">
+                50
+              </option><option value="100">
+                100
+              </option><option value="200">
+                200
+              </option></select><br/>
+        <input type="submit" value="Search" /></div>
+    </form>
+    <div class="courses search_results"><span class="search_results_count">10001</span> 
+        Search Results:
+        <ol>
+            <li><a class="course" rel="search_result" href="/student/v4/course/2008,autumn,cse,142">
+                <span class="year">2008</span> <span class="quarter">autumn</span> <span class="curriculum_abbreviation">
+                    cse</span> <span class="course_number">142</span></a> (<span class="course_title_long">COMPUTER PROGRAMMING I</span>)
+            </li>
+         </ol>
+    </div>
+     <div class="paging">previous
+     <a class="courses" rel="next" href="/student/v4/course?year=2009&amp;quarter=summer&amp;curriculum_abbreviation=cse&amp;course_title_starts=program&amp;course_title_contains=program&amp;page_start=11&amp;page_size=10&amp;">next</a></div>
+</body>
+</html>
