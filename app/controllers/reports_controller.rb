@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.all(:order=>"id")
 	  @vote = Vote.new(params[:vote])
 
 
