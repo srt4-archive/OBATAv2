@@ -32,7 +32,12 @@ $(document).ready(function() {
                     route.description;
             
             var $routeElem = $("<li/>").text(route.shortName + " - " + wordToUpper(routeDesc));
-            
+
+            $routeElem.click(function() {
+                console.log($("#report_route"));
+               $("#report_route").attr("value", route.shortName);
+            });
+
             $("#page3 .routes").append(
                 $routeElem
             );
