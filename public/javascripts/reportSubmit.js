@@ -2,8 +2,9 @@ $(document).ready(function() {
     $("#page1").show();
 
     $(document).on("click", ".categories li",  function() {
-        $(".categories li").removeClass("active");
-        $(this).addClass("active");
+        //$(".categories li").removeClass("active");
+        //$(this).addClass("active");
+        $(this).css("background", "orange");
     });
 
     $("#page1 .categories li").click(function() {

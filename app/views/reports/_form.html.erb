@@ -29,15 +29,13 @@
 			</div>
 
           <script>
-              $(".categories").touchwipe({
-                  wipeLeft: function() { alert("left"); },
-                  wipeRight: function() { alert("right"); },
-                  wipeUp: function() { alert("up"); },
-                  wipeDown: function() { alert("down"); },
-                  min_move_x: 20,
-                  min_move_y: 20,
-                  preventDefaultEvents: true
+            $(document).ready(function() {
+              $(document).wipetouch({
+                  tapToClick: true,
+                  wipeLeft: function(result) { alert(result); },
+                  wipeRight: function(result) {  }
               });
+            });
           </script>
 
 			<ul class="categories">
