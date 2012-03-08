@@ -22,12 +22,9 @@ $(document).ready(function() {
 
     // update routesList
     $("#page2 .next").click(function() {
-
-        var routeElems = new Array();
-
         $.each(routeList, function(key, route) {
             var routeDesc =
-                route.longName.length > route.description.lenth ?
+                route.longName.length > route.description.length ?
                     route.longName :
                     route.description;
             
@@ -148,7 +145,6 @@ function loadStops(lat, lon) {
     var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
     $loadingImg.show();
 
-    //var url = "http://api.onebusaway.org/api/where/schedule-for-stop/1_" + $("#stopid").attr('value') + ".json?key=TEST";
     var url = "http://api.onebusaway.org/api/where/stops-for-location.json";
 
     var data = {
@@ -206,4 +202,29 @@ function getServiceAlerts(route, elem) {
  */
 function serviceAlertCallback() {
 
+}
+
+
+/**
+ * Created by JetBrains RubyMine.
+ * User: spencer
+ * Date: 2/26/12
+ * Time: 2:45 PM
+ * To change this template use File | Settings | File Templates.
+ */
+function distanceBetween(lat1, lon1, lat2, lon2) {
+    unit = "M";
+    var radlat1 = Math.PI * lat1/180;
+    var radlat2 = Math.PI * lat2/180;
+    var radlon1 = Math.PI * lon1/180;
+    var radlon2 = Math.PI * lon2/180;
+    var theta = lon1-lon2;
+    var radtheta = Math.PI * theta/180;
+    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist);
+    dist = dist * 180/Math.PI;
+    dist = dist * 60 * 1.1515;
+    if (unit=="K") { dist = dist * 1.609344; }
+    if (unit=="N") { dist = dist * 0.8684; }
+    return dist;
 }

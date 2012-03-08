@@ -8,7 +8,9 @@ class ReportsController < ApplicationController
 
     if mobile_device?
       respond_to do |format|
-        format.html { render :layout => "mobile" }
+        format.html {
+          render :layout => "mobile"
+        }
       end
       return
     end
@@ -44,7 +46,14 @@ class ReportsController < ApplicationController
   # GET /reports/new.json
   def new
     @report = Report.new
-
+    if mobile_device?
+      respond_to do |format|
+        format.html {
+          render :layout => "mobile"
+        }
+      end
+      return
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @report }
