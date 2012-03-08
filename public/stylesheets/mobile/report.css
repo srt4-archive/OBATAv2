@@ -1,5 +1,6 @@
 body {
     background: #eee;
+    margin: 0px;
 }
 
 .page {
@@ -11,7 +12,7 @@ body {
 }
 
 #application {
-    width: 350px;
+    width: 100%;
     margin: auto;
     font-family: arial;
     background: rgb(77,77,77);
@@ -30,7 +31,7 @@ body {
 ul.categories {
     list-style: none;
     padding: 0;
-    width: 250px;
+    width: 90%;
     margin: auto;
 }
 .categories li {
