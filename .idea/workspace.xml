@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aff00c6e-b383-4248-b9ef-14a79d62c7e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/distance.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/distance.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/reportSubmit.js" afterPath="$PROJECT_DIR$/public/javascripts/reportSubmit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/mobile/report.css" afterPath="$PROJECT_DIR$/public/stylesheets/mobile/report.css" />
     </list>
     <ignored path="obata.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="50" selection-start="74" selection-end="74" vertical-scroll-proportion="-0.625">
+            <state line="34" column="19" selection-start="822" selection-end="822" vertical-scroll-proportion="0.24590164">
               <folding />
             </state>
           </provider>
@@ -59,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reportSubmit.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="reportSubmit.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/reportSubmit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="1" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.96031743">
+            <state line="229" column="1" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -152,10 +148,10 @@
         <option value="$PROJECT_DIR$/app/views/alerts/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/alerts/_form.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/mobile/report.css" />
-        <option value="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/distance.js" />
         <option value="$PROJECT_DIR$/public/javascripts/reportSubmit.js" />
+        <option value="$PROJECT_DIR$/app/views/reports/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -1050,13 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="50" selection-start="74" selection-end="74" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reports_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="7" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0">
@@ -1080,7 +1069,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/reportSubmit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="1" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.96031743">
+        <state line="229" column="1" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="19" selection-start="822" selection-end="822" vertical-scroll-proportion="0.24590164">
           <folding />
         </state>
       </provider>
