@@ -7,7 +7,6 @@
 <%= javascript_include_tag '/javascripts/reportSubmit' %>
 
 
-
 <%=  form_for @report do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
@@ -28,7 +27,19 @@
 			<div class="title">
 				Report an Issue
 			</div>
-			
+
+          <script>
+              $(".categories").touchwipe({
+                  wipeLeft: function() { alert("left"); },
+                  wipeRight: function() { alert("right"); },
+                  wipeUp: function() { alert("up"); },
+                  wipeDown: function() { alert("down"); },
+                  min_move_x: 20,
+                  min_move_y: 20,
+                  preventDefaultEvents: true
+              });
+          </script>
+
 			<ul class="categories">
 				<li>Incorrect bus arrival time</li>
 				<li>Bus didn't come to stop</li>
