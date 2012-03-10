@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     def mobile_device?
       user_agent = request.user_agent
       user_agent =~ /Mobile|webOS/
+      return true
     end
 
     helper_method :mobile_device?
