@@ -1,10 +1,16 @@
 $(document).ready(function() {
     $("#page1").show();
 
-    $(document).on("click", ".categories li",  function() {
+    $(".categories li").bind("tap",  function() {
         //$(".categories li").removeClass("active");
         //$(this).addClass("active");
         $(this).css("background", "orange");
+    });
+
+    $(".categories li").bind("swipeleft", function(event) {
+        $(this).css("background", "orange");
+        var $par = $(this).parents(".page");
+        $par.hide().next().show();
     });
 
     $("#page1 .categories li").click(function() {

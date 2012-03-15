@@ -4,8 +4,8 @@
       <%= stylesheet_link_tag '/stylesheets/report' %>
 <% end %>
 
+<%= javascript_include_tag '/javascripts/jquery.mobile-1.0.1.js' %>
 <%= javascript_include_tag '/javascripts/reportSubmit' %>
-
 
 <%=  form_for @report do |f| %>
   <% if @report.errors.any? %>
@@ -20,6 +20,68 @@
     </div>
   <% end %>
 
+<script>
+  function updateProgress(step, totalSteps) {
+      totalSteps++;
+      var $pb = $(".progress-bar").empty();
+      var width = ((step / totalSteps) * 100) / step + "%";
+
+      console.log(width);
+
+      var baseCss = {
+        height: "100%",
+        width: width,
+        float: "left"
+      };
+
+      var greenCss = {
+         background: "green",
+      };
+
+      //$pb.append($("<div/>").css(greenCss));
+
+      //$pb.append($("<div/>").addClass("circle").addClass("completed"));
+
+      for (var i = 0; i < totalSteps - 1; i++) {
+           $spacing = $("<div/>").css(baseCss);
+
+           // add a green background if it's less than the current step; otherwise white
+           if (i < step) {
+               $spacing.css(greenCss);
+           }
+
+           $pb.append($spacing);
+
+           if (i < totalSteps) {
+               $pb.append(
+                       i >= step ?
+                       $("<div/>").addClass('circle') :
+                       $("<div/>").addClass('circle').addClass('completed')
+               );
+           }
+      }
+  }
+</script>
+
+<div class="progress-bar">
+  <div class="green">
+  </div>
+
+  <div class="circle completed">
+  </div>
+
+  <div class="green">
+  </div>
+
+  <div class="circle completed">
+  </div>
+
+  <div class="spacing">
+  </div>
+
+  <div class="circle">
+  </div>
+</div>
 
   <div id="page1" class="page">
 	  <div id="container">
@@ -28,53 +90,16 @@
 				Report an Issue
 			</div>
 
-          <script>
-            $(document).ready(function() {
-              $(document).wipetouch({
-                  tapToClick: true,
-                  wipeLeft: function(result) { alert(result); },
-                  wipeRight: function(result) {  }
-              });
-            });
-          </script>
+            <ul class="categories">
+                <% Category.all.each do |c| %>
+                    <li data-id="setCategory(<%= c.id %>)" data-function="setCategory">
+                      <%= c.name %>
+                    </li>
+                <% end %>
+                    <li onclick="setCategory(-1)">Other</li>
+            </ul>
 
-                <ul class="categories">
-                    <li>Incorrect bus arrival time</li>
-                    <li>Bus didn't come to stop</li>
-                    <li>Bus came but wasn't listed</li>
-                    <li>Incorrect stop information</li>
-                    <li>Other</li>
-                </ul>
-
-                <%= f.hidden_field :title %>
-
-                <br />
-                <div class="next">Next ></div>
-
-                <div class="progress-bar">
-				<div class="green">
-				</div>
-				
-				<div class="circle completed">
-					<div class="help">
-						Step 1: Select the issue type.
-					</div>
-				</div>
-				
-				<div class="spacing">
-				</div>
-				
-				<div class="circle">
-				</div>
-				
-				<div class="spacing">
-				</div>
-				
-				<div class="circle">
-				</div>
-			</div>
-			<br />
-			<br />
+            <%= f.hidden_field :title %>
 		</div>
 	</div>
 	  
@@ -94,30 +119,9 @@
                                       :onclick => "this.value=''",
                                       :style => "font-size: 18px" } %>
 
-            <%= render 'shared/map' %>
+            <% render 'shared/map' %>
       <br />
       <div class="next">Next ></div>
-      <br />
-      <br />
-      <div class="progress-bar">
-        <div class="green">
-        </div>
-
-        <div class="circle completed">
-        </div>
-
-        <div class="green">
-        </div>
-
-        <div class="circle completed">
-        </div>
-
-        <div class="spacing">
-        </div>
-
-        <div class="circle">
-        </div>
-      </div>
     </div>
   </div>
   </div>

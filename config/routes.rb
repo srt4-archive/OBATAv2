@@ -1,4 +1,6 @@
 Obata::Application.routes.draw do
+  resources :categories
+
   resources :alerts
 
   resources :routes do
