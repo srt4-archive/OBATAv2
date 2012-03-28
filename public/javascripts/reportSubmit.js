@@ -7,10 +7,13 @@ $(document).ready(function() {
         $(this).css("background", "orange");
     });
 
-    $(".categories li").bind("swipeleft", function(event) {
+    $(".categories li").bind("click", function(event) {
+            window.setTimeout(function(){ map.invalidateSize(); console.log("invalidated");}, 1000);
+
         $(this).css("background", "orange");
         var $par = $(this).parents(".page");
         $par.hide().next().show();
+        history.pushState("/#!/selectRoute");
     });
 
     $("#page1 .categories li").click(function() {
@@ -39,7 +42,9 @@ $(document).ready(function() {
 
             $routeElem.click(function() {
                 console.log($("#report_route"));
-               $("#report_route").attr("value", route.shortName);
+                        $(this).css("background", "orange");
+
+                $("#report_route").attr("value", route.shortName);
             });
 
             $("#page3 .routes").append(
@@ -98,8 +103,6 @@ function wordToUpper(strSentence) {
     }
     return strSentence;
     function convertToUpper() {
-        if (arguments == "NE")
-            return arguments;
         return arguments[0].toUpperCase();
     }
 }
@@ -133,7 +136,8 @@ function stopDistance(stop) {
             $.longitude,
             stop.lat,
             stop.lon
-        ) * 100 ) / 100;
+        ) * 100
+    ) / 100;
 }
 
 /**
