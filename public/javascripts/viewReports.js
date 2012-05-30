@@ -12,3 +12,9 @@ function showDistances() {
         $distDiv.text(dist);
     });
 }
+
+
+// make votes draggable
+$().ready(function() {
+    $('input[type=submit]').jqResize('.down-arrow');
+});

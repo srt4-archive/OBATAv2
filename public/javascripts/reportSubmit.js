@@ -24,43 +24,7 @@ $(document).ready(function() {
 
     });
 
-    $(".next").click(function() {
-        var $par = $(this).parents(".page");
-        $par.hide().next().show();
-    });
-
-
-    // update routesList
-    $("#page2 .next").click(function() {
-        $.each(routeList, function(key, route) {
-            var routeDesc =
-                route.longName.length > route.description.length ?
-                    route.longName :
-                    route.description;
-            
-            var $routeElem = $("<li/>").text(route.shortName + " - " + wordToUpper(routeDesc));
-
-            $routeElem.click(function() {
-                console.log($("#report_route"));
-                        $(this).css("background", "orange");
-
-                $("#report_route").attr("value", route.shortName);
-            });
-
-            $("#page3 .routes").append(
-                $routeElem
-            );
-            var $detailElem = $("<div/>").css({
-                "color": "red",
-                "font-size": "12px",
-                "padding-left": "10px"
-            });
-
-            $routeElem.append($detailElem);
-
-            getServiceAlerts(route.shortName, $detailElem);
-        });
-    });
+    $(".next").click(advancePage);
 
     $("#page2 #find-near").click(function() {
         $("#stop-finder").show();
@@ -72,6 +36,42 @@ $(document).ready(function() {
     //$("#find-near").one("click", function() {
 
 });
+
+
+function advancePage(elem) {
+    var $par = $(elem).parents(".page");
+    $par.hide().next().show();
+}
+function finishPageTwo() {
+    $.each(routeList, function(key, route) {
+        var routeDesc =
+            route.longName.length > route.description.length ?
+                route.longName :
+                route.description;
+
+        var $routeElem = $("<li/>").text(route.shortName + " - " + wordToUpper(routeDesc));
+
+        $routeElem.click(function() {
+            console.log($("#report_route"));
+            $(this).css("background", "orange");
+
+            $("#report_route").attr("value", route.shortName);
+        });
+
+        $("#page3 .routes").append(
+            $routeElem
+        );
+        var $detailElem = $("<div/>").css({
+            "color": "red",
+            "font-size": "12px",
+            "padding-left": "10px"
+        });
+
+        $routeElem.append($detailElem);
+
+        getServiceAlerts(route.shortName, $detailElem);
+    });
+}
 
 var submitModel = {
     category: null,
@@ -162,7 +162,7 @@ function loadStops(lat, lon) {
         key: "TEST",
         lat: lat,
         lon: lon,
-        radius: 600
+        radius: 1000
     };
 
     $.ajax({
@@ -178,7 +178,7 @@ function loadStops(lat, lon) {
             $.leafletStopsLayer.clearLayers();
 
             $.each(result.data.stops, function(key, value) {
-
+                                               console.log(value);
                 var marker = new L.Marker(
                     new L.LatLng(value.lat, value.lon),
                     {
@@ -187,6 +187,22 @@ function loadStops(lat, lon) {
                 ).on("click", function() {
                     // populate the form with stop ID
                     $("#report_stop").attr("value", value.id);
+                    marker.bindPopup("<b>Stop:</b><br/> " + value.code + "<br /> <b>Routes:</b> <br /> " + (function() {
+                        var s = "";
+                        $.each(value.routes, function(key, v) {
+                           s += (v.shortName + "<br />");
+                            console.log(key);
+                           if (key > 2) {
+                               s += "And " + (value.routes.length - key) + " more...";
+                               return false;
+                           }
+                        });
+                        return s.toString();
+                    })()
+                    +
+                        "<a href='#' onclick='finishPageTwo()'>Select Stop ></a>"
+
+                    ).openPopup();
                     routeList = value.routes;
                 });
 

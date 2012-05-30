@@ -2,7 +2,7 @@ var id = "r" + <%= @vote.report.id %>;
 
 var count = <%= @vote.report.votes.count %>;
 
-var $elem = $("#" + id + " .count");
+var $elem = $("#" + id + " .approvals-count");
 
 $elem.fadeOut(100, function() {
 	$(this).text(count);
