@@ -2,7 +2,7 @@
 <%=  javascript_include_tag "/javascripts/jqDrag.js" %>
 <div class="header">
   <h1>Issues Log</h1>
-
+  <!--
   <div class="new-report button">
     <%= link_to '+', new_report_path %>
   </div>
@@ -14,6 +14,15 @@
   <div class="filter button">
     V
   </div>
+           -->
+  <input type="button" value="+" onclick="document.location(<%=new_report_path%>" />
+  <select>
+    <option value="nada"></option>
+    <option value="route">Route</option>
+    <option value="supporters">Number of Supporters</option>
+    <option value="status">Status</option>
+  </select>
+</div>
 </div>
 
 <div id="posts">

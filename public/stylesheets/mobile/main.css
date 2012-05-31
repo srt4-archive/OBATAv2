@@ -27,8 +27,28 @@ body {
     right: 40px;
 }
 
-.header .filter {
+.header #sorting {
+    width: 28px;
+    height: 27px;
+    border:#333;
     right: 10px;
+    position: absolute;
+    top: 18px;
+}
+
+
+#new-report {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    left: 11px;
+    top: 18px;
+    background:#EEE;
+    font-size: 17px;
+
+
 }
 
 .header .button {
@@ -63,10 +83,10 @@ body {
  */
 
 #posts {
-   background: white;
-   margin: 10px;
-   min-width: 350px;
-   margin-top: 0px;
+    background: white;
+    margin: 10px;
+    min-width: 350px;
+    margin-top: 0px;
 }
 
 #posts .report {
@@ -122,7 +142,7 @@ body {
 #posts .issue-title {
     font-weight: bold;
     color: green;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 #posts .issue-desc {
@@ -136,4 +156,42 @@ body {
 
 #posts .submit-data .user {
     color: rgb(246, 133, 0);
+}
+
+
+input[name="commit"] {
+
+    font-style: italic;
+}
+
+.approvals-count {
+
+    font-weight: bold;
+}
+
+.issue-right {
+
+    width:350px;
+}
+
+
+.issue-right > div {
+
+    margin-top: 5px;
+    text-overflow: ellipsis;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+
+
+.submit-data {
+
+    margin-top:5px;
+    text-overflow: ellipsis;
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
 }
