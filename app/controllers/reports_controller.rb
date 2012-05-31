@@ -2,6 +2,26 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+    id = 1
+    if (id.nil?)
+      @reports = Report.all(:order=>"id desc")
+    end
+
+    if (id == 1) # sort by votes
+      @reports = Report.all()
+      @reports.each do |r|
+          puts r.votes
+      end
+      @new_var = []
+
+      max_val = 0
+      @reports.each do |re|
+         if re.votes.count > 10
+           re = nil
+         end
+      end
+    end
+
     @reports = Report.all(:order=>"id desc")
 	  @vote = Vote.new(params[:vote])
 
