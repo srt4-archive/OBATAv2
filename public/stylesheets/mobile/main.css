@@ -27,7 +27,7 @@ body {
     right: 40px;
 }
 
-.header #sorting {
+#sorting {
     width: 28px;
     height: 27px;
     border:#333;
