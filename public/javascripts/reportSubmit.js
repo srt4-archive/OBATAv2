@@ -51,6 +51,9 @@ function advancePage(elem) {
 
 function finishPageTwo() {
     advancePage($("#page2 div"));
+
+
+
     $.each(routeList, function(key, route) {
         var routeDesc =
             route.longName.length > route.description.length ?
@@ -187,7 +190,6 @@ function loadStops(lat, lon) {
             $.leafletStopsLayer.clearLayers();
 
             $.each(result.data.stops, function(key, value) {
-                                               console.log(value);
                 var marker = new L.Marker(
                     new L.LatLng(value.lat, value.lon),
                     {
@@ -200,7 +202,6 @@ function loadStops(lat, lon) {
                         var s = "";
                         $.each(value.routes, function(key, v) {
                            s += (v.shortName + "<br />");
-                            console.log(key);
                            if (key > 2) {
                                s += "And " + (value.routes.length - key) + " more...";
                                return false;
@@ -211,6 +212,9 @@ function loadStops(lat, lon) {
                     + " <br /><a style='font-size:18px' href='#' onclick='finishPageTwo()'>Select Stop ></a>"
                     ).openPopup();
                     routeList = value.routes;
+
+                    $("#report_lat").attr("value", "" + value.lat);
+                    $("#report_lon").attr("value", "" + value.lon);
                 });
 
                map.addLayer(marker);

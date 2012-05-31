@@ -20,7 +20,15 @@
   <input type="button" id="new-report" onclick="window.location = ('<%= new_report_path %>')" value="+">
   <a href="/reports/new"></a>
   </button>
-  <select id="sorting">
+
+  <script>
+    function redirect(element) {
+        if ($(element).val() == "supporters") {
+            window.location = ("/reports/sort/count");
+        }
+    }
+  </script>
+  <select id="sorting" onchange="redirect(this)">
     <option value="nada"></option>
     <option value="route">Route</option>
     <option value="supporters">Number of Supporters</option>

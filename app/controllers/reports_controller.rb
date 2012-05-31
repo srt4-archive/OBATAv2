@@ -2,29 +2,20 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    id = 1
-    if (id.nil?)
-      @reports = Report.all(:order=>"id desc")
-    end
+    id = params[:id]
 
-    if (id == 1) # sort by votes
-      @reports = Report.all()
-      @reports.each do |r|
-          puts r.votes
-      end
-      @new_var = []
-
-      max_val = 0
-      @reports.each do |re|
-         if re.votes.count > 10
-           re = nil
-         end
-      end
-    end
-
+    # TODO: put this into an else block to avoid duplicate queries
     @reports = Report.all(:order=>"id desc")
-	  @vote = Vote.new(params[:vote])
 
+    if (id == 'date')
+         #do nothing
+    end
+
+    if (id == 'count') # sort by votes
+      @reports = Report.all(:order=>"id desc").sort { |y, x| x.votes.count <=> y.votes.count }
+    end
+
+    @vote = Vote.new
 
     if mobile_device?
       respond_to do |format|
@@ -100,7 +91,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to reports_url, notice: 'Report was successfully created.' }
         format.json { render json: @report, status: :created, location: @report }
       else
         format.html { render action: "new" }
