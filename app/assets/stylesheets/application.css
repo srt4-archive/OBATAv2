@@ -87,3 +87,37 @@ body {
 	color: white;
 	font-size: 16px;
 }
+
+.centerDiv {
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.centerDiv .ui-btn {
+    text-align: left;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.centerDiv input.ui-input-text, textarea.ui-input-text {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.ui-link{
+    color: #ffffff !important;
+}
+
+h2 {
+    text-align: center;
+}
+
+.ui-body-c, .ui-dialog.ui-overlay-c {
+    background :#767676 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
