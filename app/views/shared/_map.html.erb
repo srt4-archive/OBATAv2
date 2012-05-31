@@ -33,8 +33,8 @@ map.addLayer(cloudmade).setView(new L.LatLng(47.6562508, -122.3105668), 15);
 // invalidizeSize on every click of the next button
 $(document).ready(function() {
     $('.next').click(function() {
-        window.setTimeout(function(){ map.invalidateSize(); console.log("invalidated");}, 1000);
-        map.locateAndSetView(/*MaxZoom 15*/);
+        window.setTimeout(function(){
+        }, 1000);
     });
 });
 

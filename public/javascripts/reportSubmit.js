@@ -8,7 +8,13 @@ $(document).ready(function() {
     });
 
     $(".categories li").bind("click", function(event) {
-            window.setTimeout(function(){ map.invalidateSize(); console.log("invalidated");}, 1000);
+        window.setTimeout(function(){
+            map.invalidateSize();
+            console.log("Trying to load stops");
+            loadStops($.latitude, $.longitude);
+
+            console.log("Loading stops part two");
+        }, 1000);
 
         $(this).css("background", "orange");
         var $par = $(this).parents(".page");
@@ -21,7 +27,7 @@ $(document).ready(function() {
     });
 
     $("#page3 .categories li").live("click", function() {
-
+              advancePage(this);
     });
 
     $(".next").click(advancePage);
@@ -37,12 +43,14 @@ $(document).ready(function() {
 
 });
 
-
 function advancePage(elem) {
     var $par = $(elem).parents(".page");
     $par.hide().next().show();
 }
+
+
 function finishPageTwo() {
+    advancePage($("#page2 div"));
     $.each(routeList, function(key, route) {
         var routeDesc =
             route.longName.length > route.description.length ?
@@ -153,6 +161,8 @@ function updateForms() {
  * Loads stops into the list, using the OBA api
  */
 function loadStops(lat, lon) {
+    console.log("Called with " + lat + ", " + lon);
+
     var $loadingImg = $(this).children(".loading"); // TODO: replace this with class/ID search
     $loadingImg.show();
 
@@ -172,7 +182,6 @@ function loadStops(lat, lon) {
         success: function(result) {
             $loadingImg.hide();
 
-            // sort the stops
             result.data.stops.sort(sortStops);
 
             $.leafletStopsLayer.clearLayers();
@@ -199,9 +208,7 @@ function loadStops(lat, lon) {
                         });
                         return s.toString();
                     })()
-                    +
-                        "<a href='#' onclick='finishPageTwo()'>Select Stop ></a>"
-
+                    + " <br /><a style='font-size:18px' href='#' onclick='finishPageTwo()'>Select Stop ></a>"
                     ).openPopup();
                     routeList = value.routes;
                 });
