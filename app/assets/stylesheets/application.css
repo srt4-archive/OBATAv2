@@ -1,3 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+	background: #eee !important;
+	font-family: arial;
+	font-size: 13px;
+}
+
+#posts {
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	position: relative;
+}
+
+#posts .post {
+	background: white;
+	border-bottom: solid 2px gray;
+	width: 400px;
+	padding: 0px;
+}
+
+#posts .post .post-date {
+	
+}
+
+#posts .post .route {
+	position: absolute;
+	right: 0px;
+	font-size: 24px;
+	font-family: arial;
+	color: rgb(13, 147, 69);
+}
+
+#posts .post .issue {
+	
+}
+
+#posts .post .username {
+
+}
+
+#posts .left {
+	width: 80px;
+	padding-left: 10px;
+	float: left;
+}
+
+#posts .right {
+	float: left;
+}
+
+#posts .approve {
+	font-family: arial;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+	background: rgb(247, 147, 29);
+	width: 60px;
+}
+
+#posts .arrow-down {
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-top: 20px solid rgb(247, 147, 29);
+}
+
+
+
+.vote input {
+	border: none;
+	background: rgb(247, 132, 0);	
+	color: white;
+	font-size: 16px;
+}
+
+.centerDiv {
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.centerDiv .ui-btn {
+    text-align: left;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.centerDiv input.ui-input-text, textarea.ui-input-text {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.ui-link{
+    color: #ffffff !important;
+}
+
+h2 {
+    text-align: center;
+}
+
+.ui-body-c, .ui-dialog.ui-overlay-c {
+    background :#767676 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
 #viewport {
     background: rgb(220, 220, 220);
 }

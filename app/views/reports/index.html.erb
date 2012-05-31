@@ -26,7 +26,16 @@
         if ($(element).val() == "supporters") {
             window.location = ("/reports/sort/count");
         }
+
+        if ($(element).val() == "distance") {
+            // sort by distance
+
+        }
     }
+
+    $(document).ready(function() {
+        // calculate distances for all stops
+    });
   </script>
   <select id="sorting" onchange="redirect(this)">
     <option value="nada"></option>
